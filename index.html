@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynka</title>
+    <link rel ="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="question">Zostaniesz moją Walentynką? ❤️</h1>
+    <div id="heart" class="heart">❤️</div>
+    <div class="buttons">
+        <button onclick="showResult('yes')">Tak</button>
+        <button onclick="showResult('no')">Nie</button>
+    </div>
+    <div id="result"></div>
+    <img id="flowerImg" src="mis.jpg" alt="Miś">
+    <img id="noImg" src="buzka.png" alt="Miś" style="display:none; width: 300px; height: auto;">
+
+    <script>
+        function showResult(answer) {
+            const resultDiv = document.getElementById('result');
+            const flowerImg = document.getElementById('flowerImg');
+            const noImg = document.getElementById('noImg');
+            const question = document.getElementById('question');
+            const heart = document.getElementById('heart');
+
+            question.style.display = 'none';
+
+            if (answer === 'yes') {
+                resultDiv.innerHTML = 'Kocham cie 😽😽😽 🌹🌷🌼';
+                resultDiv.style.color = 'green';
+                flowerImg.classList.add('visible');
+                noImg.style.display = 'none';
+            } else {
+                resultDiv.innerHTML = 'Lepiej się zastanów ';
+                resultDiv.style.color = 'red';
+                flowerImg.classList.remove('visible');
+                noImg.style.display = 'block';
+                heart.classList.add('broken');
+                heart.innerHTML = '💔';
+            }
+
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
